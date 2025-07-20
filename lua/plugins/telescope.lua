@@ -23,6 +23,10 @@ return {
             vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
             -- set a vim motion to <Space> + f + b to search Open Buffers
             vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind Existing [B]uffers' })
+            -- Shortcut for searching your Neovim configuration files
+            vim.keymap.set('n', '<leader>fn', function()
+                builtin.find_files { cwd = vim.fn.stdpath 'config' }
+            end, { desc = '[F]ind [N]eovim files' })
         end
     },
     {
